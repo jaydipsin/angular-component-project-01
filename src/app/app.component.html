@@ -1,6 +1,11 @@
-  <app-header></app-header>
-  <main>
-    <ul >
-      <li id="users"><app-user /></li>
-    </ul>
-  </main>
+<app-header></app-header>
+<main>
+  <ul >
+    <li id="users"><app-user [name]="user[0].name" [avatar]="user[0].avatar" /></li>
+    <li id="users"><app-user [name]="user[1].name" [avatar]="user[1].avatar " /></li>
+    <li id="users"><app-user [name]="user[2].name" [avatar]="user[2].avatar " /></li>
+    <li id="users"><app-user [name]="user[3].name" [avatar]="user[3].avatar " /></li>
+    <li id="users"><app-user [name]="user[4].name" [avatar]="user[4].avatar " /></li>
+    <li id="users"><app-user [name]="user[5].name" [avatar]="user[5].avatar " /></li>
+  </ul>
+</main>
