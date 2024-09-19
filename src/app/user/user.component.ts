@@ -1,4 +1,21 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  input,
+  Input,
+  output,
+  Output,
+} from '@angular/core';
+import { DUMMY_USERS } from '../dummy-user';
+
+
+type User = {
+  id:string,
+  name:string,
+  avatar:string,
+}
+
+
 // const randomUser = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
@@ -8,14 +25,24 @@ import { Component, Input } from '@angular/core';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({required:true}) avatar!: string;
-  @Input({required:true}) name!: string;
+  @Input({ required: true }) user!:User;
+  // @Output() select = new EventEmitter(); // both are valid !
+  // @Output() select = new EventEmitter<string>();
+  select = output<string>();
   // public selectedUser = signal(DUMMY_USERS[randomUser]);
 
   // imagePath = computed(() => `assets/user/${this.selectedUser().avatar}`);
   get imagePath() {
-    return `assets/user/${this.avatar}`;
+    return `assets/user/${ this.user.avatar}`;
   }
 
-  onClickUser() {}
+  onClickUser() {
+    return this.select.emit(this.user.id);
+  }
+  // checkUser() {
+  //   let User = DUMMY_USERS.filter((user) => {
+  //     user.id === this.id;
+  //   });
+  //   console.log(User);
+  // }
 }
