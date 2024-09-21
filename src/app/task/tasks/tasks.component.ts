@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { task } from './task.moduel';
 @Component({
   selector: 'app-tasks',
   standalone: true,
   imports: [],
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.css'
+  styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
+  @Input({ required: true }) task!: task;
+  @Output() Complete = new EventEmitter<string>();
 
+  onCompleteTask() {
+    this.Complete.emit(this.task.taskId);
+  }
 }

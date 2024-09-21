@@ -1,6 +1,6 @@
 <article>
-    <h2>title</h2>
-    <time>Time</time>
-    <p>summury</p>
-    <p class="actions"><button>Complete</button></p>
+    <h2>{{ task.title }}</h2>
+    <time>{{ task.time }}</time>
+    <p>{{ task.summurry }}</p>
+    <p class="actions"><button (click)="onCompleteTask()">Complete</button></p>
 </article>

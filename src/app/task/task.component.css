@@ -51,7 +51,11 @@
     max-height: 50vh;
     overflow: auto;
   }
-  
+  .test{
+    width: 60px;
+    height: 60px;
+    background-color: brown;
+  } 
   @media (min-width: 768px) {
     h2 {
       font-size: 1.25rem;

@@ -1,11 +1,21 @@
 <section id="tasks">
+  @if (isAddingTask) {
+    <app-new-task (hideModel)="displayModel($event)"/>
+  }
   <header>
     <h2>{{ name }}'s Task</h2>
     <menu>
-      <button>Add task</button>
+      <button (click)="displayModel(true)"> Add Task </button>
     </menu>
   </header>
   <ul>
-    <li><app-tasks></app-tasks></li>
+    @for(userT of selectedUserTask; track userT.taskId){
+    <li>
+      <app-tasks
+        [task]="userT"
+        (Complete)="onClickCompleteTask($event)"
+      ></app-tasks>
+    </li>
+    }
   </ul>
 </section>

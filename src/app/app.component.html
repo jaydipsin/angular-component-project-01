@@ -1,25 +1,28 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <!-- @for(userEle of user ; track userEle.id){
-      <li id="user">
-        <app-user
-          [user] = "userEle"
-          (select)="onSelectedUser($event)" 
-        />
-      </li>
-    } -->
-    <li id="user" *ngFor="let userEle of user"> <!--We are not using this now insted we use @for-->
+    @for(userEle of user ; track userEle.id){
+    <li id="user">
       <app-user
-        [user] = "userEle"
-        (select)="onSelectedUser($event)" 
+        [user]="userEle"
+        (select)="onSelectedUser($event)"
+        [selected]="userEle.id === selectedUser"
       />
     </li>
+    }
+    <!-- <li id="user" *ngFor="let userEle of user"> -->
+    <!--We are not using this now insted we use @for-->
+    <!-- <app-user [user]="userEle" (select)="onSelectedUser($event)" 
+      [selected] = "userEle.id === selectedUser"
+      
+      />  
+    </li>-->
   </ul>
-  <!-- @if(selectedUsers){ -->
-    <app-task *ngIf="selectedUsers else fall" [name] = "selectedUsers.name"></app-task> <!--We are not using this now insted we use @if-->
-  <!-- } -->
-    <ng-template #fall>
-    <p id="fallback">Select user to see there task</p>
-  </ng-template>
+  @if(selectedUsers){
+  <app-task [userId]="selectedUsers.id" [name]="selectedUsers.name"></app-task>
+  <!--We are not using this now insted we use @if-->
+  }
+  @else {
+    <p>Select the user first</p>
+  }
 </main>
