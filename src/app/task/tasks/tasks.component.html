@@ -1,6 +1,8 @@
+<app-shared-component-card>
 <article>
     <h2>{{ task.title }}</h2>
-    <time>{{ task.time }}</time>
+    <time>{{ task.time | date:"fullDate"}}</time>
     <p>{{ task.summurry }}</p>
     <p class="actions"><button (click)="onCompleteTask()">Complete</button></p>
 </article>
+</app-shared-component-card>

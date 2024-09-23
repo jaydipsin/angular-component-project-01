@@ -1,14 +1,43 @@
-import { Component, EventEmitter, Output } from "@angular/core";
-@Component ({
-    selector:"app-new-task",
-    standalone:true,
-    templateUrl:"./newtask.component.html",
-    styleUrl:"./newtask.component.css",
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Output,
+  Input
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ServiceTask } from './../task.service';
+export interface taskModel {
+  title: string;
+  summury: string;
+  date: string;
+}
+
+@Component({
+  selector: 'app-new-task',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './newtask.component.html',
+  styleUrl: './newtask.component.css',
 })
-export class NewTask{
-    @Output()  hideModel = new EventEmitter<boolean>();
-    onCancel(){
-        this.hideModel.emit(false)
-        // this.isDialog = !this.isDialog;
-    }
+export class NewTask {
+  @Input() adduserId!:string;
+  @Output() close = new EventEmitter<boolean>();
+  private ServiceTask = inject(ServiceTask);
+  enteredTitle = '';
+  enteredSummury = '';
+  enteredDate = '';
+  onCancel() {
+    this.close.emit(false);
+    // this.isDialog = !this.isDialog;
+  }
+  onSubmit() {
+    this.close.emit(false);
+    this.ServiceTask.getUserData({
+      title: this.enteredTitle,
+      summury:this.enteredSummury,
+      date:this.enteredDate,
+    },this.adduserId);
+    
+  }
 }
