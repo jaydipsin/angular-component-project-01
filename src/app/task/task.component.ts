@@ -23,10 +23,10 @@ export class TaskComponents {
   closeModel(hideModel: boolean = true) {
     this.isAddingTask = hideModel;
   }
-  onClickCompleteTask(id: string) {
-    return this.TaskService.removeTask(id)
-    // return (this.userTasks = this.userTasks.filter((task) => task.taskId !== id));
-  }
+  // onClickCompleteTask(id: string) {
+  //   return this.TaskService.removeTask(id)
+  //   // return (this.userTasks = this.userTasks.filter((task) => task.taskId !== id));
+  // }
   onAddTask(taskData:taskModel){
     this.isAddingTask = false;
     return this.TaskService.getUserData(taskData,this.userId)

@@ -1,6 +1,6 @@
 <section id="tasks">
   @if (isAddingTask) {
-    <app-new-task [adduserId]="userId" (close)="closeModel($event)" />
+  <app-new-task [adduserId]="userId" (close)="closeModel($event)" />
   }
   <header>
     <h2>{{ name }}'s Task</h2>
@@ -13,8 +13,8 @@
     <li>
       <app-tasks
         [task]="userT"
-        (Complete)="onClickCompleteTask($event)"
-      ></app-tasks>
+        ></app-tasks>
+        <!-- (Complete)="onClickCompleteTask($event)" -->
     </li>
     }
   </ul>
