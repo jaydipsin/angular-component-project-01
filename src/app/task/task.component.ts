@@ -1,14 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TasksComponent } from './tasks/tasks.component';
-import { NewTask } from './new-task/newtask.component';
 import { type taskModel } from './new-task/newtask.component';
-import { type task } from './tasks/task.moduel';
 import {ServiceTask} from './task.service'
 @Component({
   selector: 'app-task',
-  standalone: true,
   templateUrl: './task.component.html',
-  imports: [TasksComponent, NewTask],
   styleUrl: './task.component.css',
 })
 export class TaskComponents {

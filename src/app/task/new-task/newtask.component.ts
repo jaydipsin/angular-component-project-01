@@ -5,7 +5,6 @@ import {
   Output,
   Input
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { ServiceTask } from './../task.service';
 export interface taskModel {
   title: string;
@@ -15,8 +14,6 @@ export interface taskModel {
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './newtask.component.html',
   styleUrl: './newtask.component.css',
 })

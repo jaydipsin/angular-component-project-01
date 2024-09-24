@@ -5,12 +5,9 @@ import {
 } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-user';
 import { User } from '../user/user.moduel';
-import {SharedComponentCardComponent} from './../shared-component-card/shared-component-card.component'
 // const randomUser = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [SharedComponentCardComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })

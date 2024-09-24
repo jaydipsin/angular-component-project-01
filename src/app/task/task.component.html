@@ -1,11 +1,11 @@
 <section id="tasks">
   @if (isAddingTask) {
-  <app-new-task [adduserId]="userId" (close)="closeModel($event)" />
+    <app-new-task [adduserId]="userId" (close)="closeModel($event)" />
   }
   <header>
     <h2>{{ name }}'s Task</h2>
     <menu>
-      <button (click)="closeModel(true)"> Add Task </button>
+      <button (click)="closeModel()"> Add Task </button>
     </menu>
   </header>
   <ul>
